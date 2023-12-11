@@ -1,32 +1,59 @@
-let cells = document.querySelectorAll(".cells");
+let cells = Array.from(document.querySelectorAll(".cells"));
 let count = 0;
+let twoDArray = [];
 
-function defaultstate() {
-    for (let i = 0; i < 9; i++) {
-        cells[i].addEventListener("click", clickevent);
-        function clickevent() {
-            if (count % 2 == 0) {
-                cells[i].innerHTML = "❌";
-                cells[i].removeEventListener("click", clickevent);
-            }
-            else {
-                cells[i].innerHTML = "⭕";
-                cells[i].removeEventListener("click", clickevent);
-            }
-            /*if (cells[0].innerHTML == cells[4].innerHTML && cells[4].innerHTML == cells[9].innerHTML) {
-                i = 8;
-            }*/
-            count++;
+function defaultState() {
+    for (let i = 0; i < 3; i++) {
+        twoDArray[i] = [];
+        for (let j = 0; j < 3; j++) {
+            twoDArray[i][j] = cells[i * 3 + j];
+            twoDArray[i][j].addEventListener("click", clickEvent);
         }
-
     }
 }
-defaultstate();
 
-document.querySelector("#reset").addEventListener("click", () => {
-    for (let i = 0; i < 9; i++) {
-        cells[i].innerHTML = "";
+function clickEvent() {
+    if (count % 2 == 0) {
+        this.innerHTML = "❌";
+        this.removeEventListener("click", clickEvent);
+        console.log(twoDArray);
+    } else {
+        this.innerHTML = "⭕";
+        this.removeEventListener("click", clickEvent);
+    }
+    count++;
+    // Call victory check here if needed
+}
+
+function resetGame() {
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            twoDArray[i][j].innerHTML = "";
+            twoDArray[i][j].addEventListener("click", clickEvent);
+        }
     }
     count = 0;
-    defaultstate();
-});
+}
+
+function victoryCheck() {
+    // Implement the logic to check for a winning condition
+    for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+            if (twoDArray[i][j] == twoDArray[i][j + 1] == twoDArray[i][j + 2]) {
+                console.log("win");
+            }
+            else if (twoDArray[i][j] == twoDArray[i + 1][j] == twoDArray[i + 2][j]) {
+                console.log("win");
+            }
+            else if (twoDArray[0][0] == twoDArray[1][1] == twoDArray[2][2]) {
+                console.log("win");
+            }
+        }
+    }
+}
+
+// Call initializeGame to set up the initial state
+defaultState();
+
+// Add an event listener for the reset button
+document.querySelector("#reset").addEventListener("click", resetGame);
