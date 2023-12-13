@@ -45,14 +45,18 @@ main {
 
 #reset {
     border-radius: 50px;
-    width: 100px;
-    height: 35px;
+    width: 110px;
+    height: 40px;
     cursor: pointer;
     box-shadow: 0px -1px 15px rgba(0, 0, 0, 0.726) inset;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 #reset:hover {
     box-shadow: 0px -1px 15px rgb(0, 0, 0) inset;
+}
+
+#reset:active {
+    transform: scale(0.96);
 }
