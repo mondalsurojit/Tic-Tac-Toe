@@ -1,7 +1,11 @@
 let cells = Array.from(document.querySelectorAll(".cells"));
-let count = 0;
 let twoDArray = [];
+let count = 0;
 let bool = 0;
+let audio = new Audio("clickSound.mp3");
+player1WinCount = 0;
+player2WinCount = 0;
+draw = 0;
 
 function defaultState() {
     for (let i = 0; i < 3; i++) {
@@ -15,6 +19,8 @@ function defaultState() {
 
 function clickEvent() {
     this.innerHTML = count % 2 == 0 ? "❌" : "⭕";
+    audio.currentTime = 0;
+    audio.play();
     this.removeEventListener("click", clickEvent);
     count++;
     // Call victory check here if needed
@@ -54,14 +60,20 @@ function victoryAlert() {
     if (bool == 1) {
         setTimeout(() => { alert("Cross Won"); }, 300);
         setTimeout(() => { resetGame(); }, 350);
+        player1WinCount++;
+        console.log(player1WinCount);
     }
     else if (bool == 2) {
         setTimeout(() => { alert("Circle Won"); }, 300);
         setTimeout(() => { resetGame(); }, 350);
+        player2WinCount++;
+        console.log(player2WinCount);
     }
     else if (count == 9) {
         setTimeout(() => { alert("Draw"); }, 300);
         setTimeout(() => { resetGame(); }, 350);
+        draw++;
+        console.log(draw);
     }
 }
 
