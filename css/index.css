@@ -1,10 +1,22 @@
 main {
     z-index: 100;
-    width: 70vh;
+    width: 40vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        width: 90vw;
+    }
+}
+
+@media only screen and (min-width: 601px) and (max-width: 768px) {
+    main {
+        width: 80vw;
+    }
 }
 
 p {
