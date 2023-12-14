@@ -1,8 +1,15 @@
 let cells = Array.from(document.querySelectorAll(".cells"));
 let twoDArray = [];
+
 let count = 0;
 let bool = 0;
-let audio = new Audio("clickSound.mp3");
+
+let bgMusic = new Audio("audio/bgmusic.mp3");
+bgMusic.loop = true;
+bgMusic.volume = 0.1;
+bgMusic.play();
+let audio = new Audio("audio/clickSound.mp3");
+
 player1WinCount = 0;
 player2WinCount = 0;
 draw = 0;
@@ -93,3 +100,4 @@ defaultState();
 
 // Add an event listener for the reset button
 document.querySelector("#reset").addEventListener("click", resetGame);
+

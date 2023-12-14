@@ -4,25 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic-Tac-Toe</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
     <script src="script.js" defer></script>
+    <title>Tic-Tac-Toe</title>
+    <link rel="icon" href="favicon.ico?" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico?" type="image/x-icon">
 </head>
 
 <body>
-    <!-- <audio src="bgmusic.mp3" autoplay loop></audio> -->
     <main>
-        <div class=" cells"></div>
-        <div class="cells"></div>
-        <div class="cells"></div>
-        <div class="cells"></div>
-        <div class="cells"></div>
-        <div class="cells"></div>
-        <div class="cells"></div>
-        <div class="cells"></div>
-        <div class="cells"></div>
+        <p id="heading">❌⭕</p>
+        <section>
+            <p>Pick Player 1's Mark</p>
+            <div id="wrapper">
+                <div>❌</div>
+                <div>⭕</div>
+            </div>
+            <p>Remember X Goes First</p>
+        </section>
+        <a href="game.html"><button>NEW GAME (VS PC)</button></a>
+        <a href="game.html"><button>NEW GAME (VS PLAYER)</button></a>
     </main>
-    <button type="reset" id="reset">Reset</button>
 </body>
 
 </html>

@@ -1,0 +1,94 @@
+main {
+    z-index: 100;
+    width: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+p {
+    text-align: center;
+    color: white;
+    font-size: 14px;
+}
+
+p:first-child {
+    margin-top: calc((25vh - 12vh) / 4);
+    transform: translate(0, -50%);
+}
+
+p:last-child {
+    margin-bottom: calc((25vh - 12vh) / 4);
+    transform: translate(0, 50%);
+}
+
+#heading {
+    font-size: 30px;
+    margin-bottom: 3vh;
+    text-shadow: 1px 2px 1px rgb(0, 0, 0);
+}
+
+section {
+    border-radius: 12px;
+    height: 25vh;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    box-shadow: 0px 0px 15px rgb(255, 255, 255);
+}
+
+#wrapper {
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 8px;
+    background-color: rgb(0, 0, 0);
+    height: 12vh;
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+#wrapper div {
+    width: 50%;
+    height: 100%;
+    color: white;
+    font-size: 25px;
+    display: grid;
+    place-content: center;
+}
+
+#wrapper div:hover {
+    background-color: rgba(255, 255, 255, 0.605);
+    border-style: solid;
+    border-color: black;
+}
+
+a {
+    display: grid;
+    place-items: center;
+    margin-top: 3vh;
+}
+
+button,
+a {
+    width: 100%;
+    height: 9vh;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* main:nth-child(3) button {
+    background-color: blue;
+} */
+
+button:hover {
+    box-shadow: 0px -1px 15px rgb(0, 0, 0) inset;
+}
+
+button:active {
+    transform: scale(0.96);
+}
