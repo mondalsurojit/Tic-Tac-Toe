@@ -8,6 +8,7 @@ let bgMusic = new Audio("audio/bgmusic.mp3");
 bgMusic.loop = true;
 bgMusic.volume = 0.1;
 bgMusic.play();
+
 let audio = new Audio("audio/clickSound.mp3");
 
 player1WinCount = 0;
