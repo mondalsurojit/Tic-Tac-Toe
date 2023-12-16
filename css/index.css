@@ -101,6 +101,7 @@ a {
 
 button:hover {
     box-shadow: 0px -1px 15px rgb(0, 0, 0) inset;
+    cursor: pointer;
 }
 
 button:active {

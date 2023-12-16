@@ -1,3 +1,5 @@
+import triggerValue from "./index.js";
+
 let cells = Array.from(document.querySelectorAll(".cells"));
 let twoDArray = [];
 
@@ -14,6 +16,14 @@ let audio = new Audio("audio/clickSound.mp3");
 player1WinCount = 0;
 player2WinCount = 0;
 draw = 0;
+
+// Call initializeGame to set up the initial state
+defaultState();
+
+// Add an event listener for the reset button
+document.querySelector("#reset").addEventListener("click", resetGame);
+
+console.log(triggerValue); //not working yet
 
 function defaultState() {
     for (let i = 0; i < 3; i++) {
@@ -96,9 +106,6 @@ function resetGame() {
     bool = 0;
 }
 
-// Call initializeGame to set up the initial state
-defaultState();
+// function vsPC() {
 
-// Add an event listener for the reset button
-document.querySelector("#reset").addEventListener("click", resetGame);
-
+// }
