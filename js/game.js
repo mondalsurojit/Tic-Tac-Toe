@@ -1,31 +1,29 @@
-import triggerValue from "./index.js";
+// import { triggerValue1, triggerValue2 } from "./index.js";
 
 let cells = Array.from(document.querySelectorAll(".cells"));
 let twoDArray = [];
 
+document.querySelector("#reset").addEventListener("click", resetGame);
+
 let count = 0;
 let bool = 0;
 
-let bgMusic = new Audio("audio/bgmusic.mp3");
-bgMusic.loop = true;
-bgMusic.volume = 0.1;
-bgMusic.play();
+let player1WinCount = 0;
+let player2WinCount = 0;
+let draw = 0;
+
+let random1 = Math.floor(Math.random() * 3);
+let random2 = Math.floor(Math.random() * 3);
 
 let audio = new Audio("audio/clickSound.mp3");
+(function bgmusic() {
+    let bgMusic = new Audio("audio/bgmusic.mp3");
+    bgMusic.loop = true;
+    bgMusic.volume = 0.1;
+    bgMusic.play();
+})();
 
-player1WinCount = 0;
-player2WinCount = 0;
-draw = 0;
-
-// Call initializeGame to set up the initial state
-defaultState();
-
-// Add an event listener for the reset button
-document.querySelector("#reset").addEventListener("click", resetGame);
-
-console.log(triggerValue); //not working yet
-
-function defaultState() {
+(function defaultState() {
     for (let i = 0; i < 3; i++) {
         twoDArray[i] = [];
         for (let j = 0; j < 3; j++) {
@@ -33,7 +31,7 @@ function defaultState() {
             twoDArray[i][j].addEventListener("click", clickEvent);
         }
     }
-}
+})();
 
 function clickEvent() {
     this.innerHTML = count % 2 == 0 ? "❌" : "⭕";
@@ -106,6 +104,22 @@ function resetGame() {
     bool = 0;
 }
 
-// function vsPC() {
+function vsPC() {
+    if (count % 2 != 0) {
+        twoDArray.forEach((twoDArrayCells) => {
+            twoDArrayCells.forEach((twoDArrayCellsCells) => {
+                if (twoDArrayCellsCells == "") {
+                    twoDArray[random1][random2].innerHTML = "⭕";
+                    audio.currentTime = 0;
+                    audio.play();
+                    twoDArray[random1][random2].removeEventListener("click", clickEvent);
+                    count++;
+                    victoryCheck();
+                    victoryAlert();
+                }
+            });
+        });
+    }
+}
 
-// }
+// console.log(triggerValue); //not working yet
