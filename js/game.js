@@ -1,4 +1,5 @@
-// import { triggerValue1, triggerValue2 } from "./index.js";
+let triggerValue1 = sessionStorage.getItem("triggerValue1");
+let triggerValue2 = sessionStorage.getItem("triggerValue2");
 
 let cells = Array.from(document.querySelectorAll(".cells"));
 let twoDArray = [];
@@ -39,7 +40,6 @@ function clickEvent() {
     audio.play();
     this.removeEventListener("click", clickEvent);
     count++;
-    // Call victory check here if needed
     victoryCheck();
     victoryAlert();
 }
@@ -121,5 +121,3 @@ function vsPC() {
         });
     }
 }
-
-// console.log(triggerValue); //not working yet
