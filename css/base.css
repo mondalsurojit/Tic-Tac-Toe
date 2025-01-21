@@ -67,7 +67,14 @@ head::after {
     animation-duration: 41s;
     animation-delay: -19s;
 }
-
+#heading {
+    color: red;
+    text-shadow: 2px 2px 4px black; /* Add black shadow */
+    font-size: 24px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    margin-top: 20px; /* Add some margin at the top */
+}
 @keyframes move {
     from {
         transform: rotate(0deg) scale(12) translateX(-20px);
@@ -76,4 +83,8 @@ head::after {
     to {
         transform: rotate(360deg) scale(18) translateX(20px);
     }
+}
+p{
+    color:red;
+    text-shadow:2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow */;
 }
